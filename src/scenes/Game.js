@@ -21,12 +21,6 @@ export default class GameScene extends Phaser.Scene {
 
         const spinSound = this.sound.add('spin');
 
-        spinBtn.on('pointerdown', () => {
-            spinSound.duration
-            spinSound.play();
-            boardMap.randomize();
-        }).setOrigin(0.5);
-
         const boardMap = this.make.tilemap({ key: 'board' });
 
         const boardTileset = boardMap.addTilesetImage('board', 'board');
@@ -41,5 +35,11 @@ export default class GameScene extends Phaser.Scene {
         gemsLayer.setX(500);
         gemsLayer.setY(78);
         gemsLayer.setScale(0.5);
+
+        spinBtn.on('pointerdown', () => {
+            spinSound.duration
+            spinSound.play();
+            boardMap.randomize();
+        }).setOrigin(0.5);
     }
 }
